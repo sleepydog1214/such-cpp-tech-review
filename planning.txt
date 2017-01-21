@@ -1,0 +1,56 @@
+Languages: C++, Perl, Python, JavaScript
+
+1. Write a class that does one thing:
+  a) process strings
+  b) linked list
+  c) i/o
+  d) hash table
+  e) numerical algorithms
+  f) binary tree
+
+2. Start with a parent class that has a core set of routines
+  a) start
+  b) print
+  c) test
+  d) end
+
+3. Each tech review class inherits from the parent, see if you can get
+polymorphism
+  a) The main routine has a parent instance, then gets an input of
+  sub-classes from a JSON data file, and calls start, test, end on each
+  instance.
+
+4. Strings
+  a) sort
+  b) search
+  c) splice
+  d) replace
+  e) reverse
+  f) tolower
+  g) toupper
+
+5. Linked List
+  a) insert
+  b) remove
+  c) sort
+  d) reverse
+
+6. I/O
+  a) command-line input and output
+  b) file input and output
+  c) file seek
+
+7. Hash Table
+  a) insert
+  b) remove
+  c) find
+
+8. Algorithms
+  a) gcd
+  b) fibonacci
+  c) add from Corman book
+
+9. Binary Tree
+  a) insert
+  b) remove
+  c) sort

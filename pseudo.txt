@@ -1,0 +1,46 @@
+class Review {
+  methods:
+    constructor();
+
+    start(); // starts testing of the review class
+    print(); // prints results of the testing
+    end(); // ends testing of the review class
+
+    destructor();
+
+  data members:
+    file testLog;
+};
+
+class SubReview inherit Review {
+  methods:
+    constructor();
+    start();
+    print();
+    end();
+    destructor();
+
+  private methods:
+    test1();
+    test2();
+    test3();
+
+  data members:
+    file testLog;
+};
+
+main() {
+  techReview = Review();
+
+  // open a JSON files that lists the instances of the Review class
+  instanceList = openInstances();
+
+  // loop through each instance
+  iter = instanceList.instances;
+  for instance from iter.instance {
+    techReview = instance.Review;
+    techReview.start();
+    techReview.print();
+    techreview.end();
+  }
+}
