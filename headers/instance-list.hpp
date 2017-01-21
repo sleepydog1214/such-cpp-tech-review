@@ -8,6 +8,7 @@
 #include "list-review.hpp"
 #include "string-review.hpp"
 #include "tree-review.hpp"
+#include "parse-json.hpp"
 
 #include <vector>
 using namespace std;
@@ -21,6 +22,9 @@ class ReviewList {
     ~ReviewList();
 
   private:
+    // Initialize each review instance
+    ParseJson jsonFile;
+    
     //Review **instanceList;
     vector<Review *> instanceList;
 
