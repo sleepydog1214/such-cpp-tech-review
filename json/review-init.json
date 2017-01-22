@@ -1,32 +1,32 @@
 { "reviewList" : [
   { "algo-review" : {
-      "init-value": 1,
+      "init-value": "1",
       "init-string": "An algorithm review",
-      "check-value": 4
+      "check-value": "4"
   }},
   {"hash-review": {
-      "init-value": 2,
+      "init-value": "2",
       "init-string": "A hash table review",
-      "check-value": 5
+      "check-value": "5"
   }},
   {"io-review": {
-      "init-value": 3,
+      "init-value": "3",
       "init-string": "An I/O review",
-      "check-value": 6
+      "check-value": "6"
   }},
   {"list-review": {
-      "init-value": 4,
+      "init-value": "4",
       "init-string": "A linked list review",
-      "check-value": 7
+      "check-value": "7"
   }},
   {"string-review": {
-      "init-value": 5,
+      "init-value": "5",
       "init-string": "An string review",
-      "check-value": 8
+      "check-value": "8"
   }},
   {"tree-review": {
-      "init-value": 6,
+      "init-value": "6",
       "init-string": "An binary tree review",
-      "check-value": 9
+      "check-value": "9"
   }}
 ]}

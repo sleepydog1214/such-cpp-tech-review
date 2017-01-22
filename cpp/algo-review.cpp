@@ -1,7 +1,6 @@
 #include "algo-review.hpp"
 
 #include <iostream>
-using namespace std;
 
 AlgoReview::AlgoReview() {
 

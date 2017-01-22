@@ -10,7 +10,7 @@ class Review {
     virtual void test() = 0;
     virtual void end() = 0;
 
-    ~Review();
+    virtual ~Review();
 };
 
 #endif

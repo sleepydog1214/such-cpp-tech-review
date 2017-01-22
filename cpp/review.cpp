@@ -1,13 +1,12 @@
-#include <iostream>
-using namespace std;
-
 #include "review.hpp"
+
+#include <iostream>
 
 // First child class methods
 Review::Review() {
-  cout << "Review class constructor" << endl;
+  std::cout << "Review class constructor" << std::endl;
 }
 
 Review::~Review() {
-  cout << "Review class destructor" << endl;
+  std::cout << "Review class destructor" << std::endl;
 }

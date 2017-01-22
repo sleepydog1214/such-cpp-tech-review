@@ -1,7 +1,6 @@
 #include "io-review.hpp"
 
 #include <iostream>
-using namespace std;
 
 IOReview::IOReview() {
 

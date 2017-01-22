@@ -1,7 +1,6 @@
 #include "string-review.hpp"
 
 #include <iostream>
-using namespace std;
 
 StringReview::StringReview() {
 

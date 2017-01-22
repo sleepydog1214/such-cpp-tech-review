@@ -1,7 +1,6 @@
 #include "list-review.hpp"
 
 #include <iostream>
-using namespace std;
 
 ListReview::ListReview() {
 

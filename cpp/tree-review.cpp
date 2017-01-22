@@ -1,7 +1,6 @@
 #include "tree-review.hpp"
 
 #include <iostream>
-using namespace std;
 
 TreeReview::TreeReview() {
 

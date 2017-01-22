@@ -1,7 +1,6 @@
 #include "hash-review.hpp"
 
 #include <iostream>
-using namespace std;
 
 HashReview::HashReview() {
 

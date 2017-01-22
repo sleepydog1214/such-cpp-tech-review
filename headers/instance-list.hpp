@@ -11,22 +11,21 @@
 #include "parse-json.hpp"
 
 #include <vector>
-using namespace std;
 
 class ReviewList {
   public:
     ReviewList();
     //Review** getList();
-    vector<Review *> & getList();
+    std::vector<Review *> & getList();
 
     ~ReviewList();
 
   private:
     // Initialize each review instance
-    ParseJson jsonFile;
-    
+    ParseJSON jsonFile;
+
     //Review **instanceList;
-    vector<Review *> instanceList;
+    std::vector<Review *> instanceList;
 
     AlgoReview   *algoReview;
     HashReview   *hashReview;
