@@ -5,13 +5,14 @@
 
 class IOReview: public Review {
   public:
-    IOReview();
+    IOReview() {}
+    IOReview(std::string a, int b, int c) : Review(a, b, c) {}
 
     void start();
     void test();
     void end();
 
-    ~IOReview();
+    ~IOReview() {}
 };
 
 #endif

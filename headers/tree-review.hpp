@@ -5,13 +5,14 @@
 
 class TreeReview: public Review {
   public:
-    TreeReview();
+    TreeReview() {}
+    TreeReview(std::string a, int b, int c) : Review(a, b, c) {}
 
     void start();
     void test();
     void end();
 
-    ~TreeReview();
+    ~TreeReview() {}
 };
 
 #endif

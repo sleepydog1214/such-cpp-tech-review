@@ -2,12 +2,8 @@
 
 #include <iostream>
 
-StringReview::StringReview() {
-
-}
-
 void StringReview::start() {
-
+  printData();
 }
 
 void StringReview::test() {
@@ -15,9 +11,5 @@ void StringReview::test() {
 }
 
 void StringReview::end() {
-
-}
-
-StringReview::~StringReview() {
 
 }

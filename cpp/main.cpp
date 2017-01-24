@@ -10,7 +10,7 @@ int main() {
   //Review **instanceArr = aList.getList();
   vector<Review *> instanceArr = aList.getList();
 
-  for (int i = 0; i < 2; i++) {
+  for (int i = 0; i < 6; i++) {
     instanceArr[i]->start();
     instanceArr[i]->test();
     instanceArr[i]->end();

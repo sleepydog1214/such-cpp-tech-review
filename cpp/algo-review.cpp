@@ -2,12 +2,8 @@
 
 #include <iostream>
 
-AlgoReview::AlgoReview() {
-
-}
-
 void AlgoReview::start() {
-
+  printData();
 }
 
 void AlgoReview::test() {
@@ -15,9 +11,5 @@ void AlgoReview::test() {
 }
 
 void AlgoReview::end() {
-
-}
-
-AlgoReview::~AlgoReview() {
 
 }

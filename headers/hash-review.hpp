@@ -5,13 +5,14 @@
 
 class HashReview: public Review {
   public:
-    HashReview();
+    HashReview() {}
+    HashReview(std::string a, int b, int c) : Review(a, b, c) {}
 
     void start();
     void test();
     void end();
 
-    ~HashReview();
+    ~HashReview() {}
 };
 
 #endif

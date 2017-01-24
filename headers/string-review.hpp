@@ -5,13 +5,14 @@
 
 class StringReview: public Review {
   public:
-    StringReview();
+    StringReview() {}
+    StringReview(std::string a, int b, int c) : Review(a, b, c) {}
 
     void start();
     void test();
     void end();
 
-    ~StringReview();
+    ~StringReview() {}
 };
 
 #endif

@@ -5,13 +5,14 @@
 
 class ListReview: public Review {
   public:
-    ListReview();
+    ListReview() {}
+    ListReview(std::string a, int b, int c) : Review(a, b, c) {}
 
     void start();
     void test();
     void end();
 
-    ~ListReview();
+    ~ListReview() {}
 };
 
 #endif

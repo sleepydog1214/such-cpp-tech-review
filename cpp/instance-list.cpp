@@ -1,10 +1,14 @@
 #include <iostream>
 #include <vector>
+#include <cstdlib>
 
 #include "review.hpp"
 #include "instance-list.hpp"
 #include "json-data-structures.hpp"
 
+//*****************************************************************************
+// Constructor() - get data from the JSON file and initialize each review
+//*****************************************************************************
 ReviewList::ReviewList() {
   // Need to read JSON file to initialize each review instance-list
   jsonFile.readJSON();
@@ -17,39 +21,33 @@ ReviewList::ReviewList() {
     DataMap imap = jvect[i];
     std::string reviewTitle = imap.key();
 
-    std::cout << "json: " << reviewTitle << std::endl;
-
     // Now loop through the inner vector
     DataVector r_vect = imap.value();
 
-    std::string init_value;
     std::string init_string;
-    std::string check_value;
-    for (std::size_t j = 0; j < r_vect.size(); j++) {
-      DataPairMap t_map = r_vect[j];
+    int init_value;
+    int check_value;
+    setInitValues(r_vect, init_string, init_value, check_value);
 
-      switch (j) {
-        case 0:
-          init_value = t_map["init-value"];
-          break;
-        case 1:
-          init_string = t_map["init-string"];
-          break;
-        case 2:
-          check_value = t_map["check-value"];
-          break;
-      }
+    if (reviewTitle == "algo-review") {
+      algoReview = new AlgoReview(init_string, init_value, check_value);
     }
-    std::cout << " " << init_value << " " << init_string << " " <<
-        check_value << std::endl;
+    else if (reviewTitle == "hash-review") {
+      hashReview = new HashReview(init_string, init_value, check_value);
+    }
+    else if (reviewTitle == "io-review") {
+      ioReview = new IOReview(init_string, init_value, check_value);
+    }
+    else if (reviewTitle == "list-review") {
+      listReview = new ListReview(init_string, init_value, check_value);
+    }
+    else if (reviewTitle == "string-review") {
+      stringReview = new StringReview(init_string, init_value, check_value);
+    }
+    else if (reviewTitle == "tree-review") {
+      treeReview = new TreeReview(init_string, init_value, check_value);
+    }
   }
-
-  algoReview   = new AlgoReview;
-  hashReview   = new HashReview;
-  ioReview     = new IOReview;
-  listReview   = new ListReview;
-  stringReview = new StringReview;
-  treeReview   = new TreeReview;
 
   instanceList.push_back(static_cast<Review *>(algoReview));
   instanceList.push_back(static_cast<Review *>(hashReview));
@@ -59,10 +57,30 @@ ReviewList::ReviewList() {
   instanceList.push_back(static_cast<Review *>(treeReview));
 }
 
-  std::vector<Review *> & ReviewList::getList() {
-  return instanceList;
+//*****************************************************************************
+// Read the initialization values from the JSON data
+//*****************************************************************************
+void ReviewList::setInitValues(DataVector& v, std::string& s, int& a, int& b) {
+  for (std::size_t i = 0; i < v.size(); i++) {
+    DataPairMap t_map = v[i];
+
+    switch (i) {
+      case 0:
+        a = atoi(t_map["init-value"].c_str());
+        break;
+      case 1:
+        s = t_map["init-string"];
+        break;
+      case 2:
+        b = atoi(t_map["check-value"].c_str());
+        break;
+    }
+  }
 }
 
+//*****************************************************************************
+// Destructor - free review memory
+//*****************************************************************************
 ReviewList::~ReviewList() {
   instanceList.erase(instanceList.begin());
 

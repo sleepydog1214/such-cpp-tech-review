@@ -15,8 +15,8 @@
 class ReviewList {
   public:
     ReviewList();
-    
-    std::vector<Review *> & getList();
+
+    std::vector<Review *> & getList() { return instanceList; }
 
     ~ReviewList();
 
@@ -32,6 +32,8 @@ class ReviewList {
     ListReview   *listReview;
     StringReview *stringReview;
     TreeReview   *treeReview;
+
+    void setInitValues(DataVector& v, std::string& s, int& a, int& b);
 };
 
 #endif

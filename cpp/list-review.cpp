@@ -2,12 +2,8 @@
 
 #include <iostream>
 
-ListReview::ListReview() {
-
-}
-
 void ListReview::start() {
-
+  printData();
 }
 
 void ListReview::test() {
@@ -15,9 +11,5 @@ void ListReview::test() {
 }
 
 void ListReview::end() {
-
-}
-
-ListReview::~ListReview() {
 
 }

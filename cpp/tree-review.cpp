@@ -2,12 +2,8 @@
 
 #include <iostream>
 
-TreeReview::TreeReview() {
-
-}
-
 void TreeReview::start() {
-
+  printData();
 }
 
 void TreeReview::test() {
@@ -15,9 +11,5 @@ void TreeReview::test() {
 }
 
 void TreeReview::end() {
-
-}
-
-TreeReview::~TreeReview() {
 
 }

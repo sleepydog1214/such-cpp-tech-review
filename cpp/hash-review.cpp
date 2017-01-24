@@ -2,12 +2,8 @@
 
 #include <iostream>
 
-HashReview::HashReview() {
-
-}
-
 void HashReview::start() {
-
+  printData();
 }
 
 void HashReview::test() {
@@ -15,9 +11,5 @@ void HashReview::test() {
 }
 
 void HashReview::end() {
-
-}
-
-HashReview::~HashReview() {
 
 }

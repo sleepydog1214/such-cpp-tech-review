@@ -1,12 +1,8 @@
 #include "review.hpp"
-
 #include <iostream>
 
-// First child class methods
-Review::Review() {
-  std::cout << "Review class constructor" << std::endl;
-}
-
-Review::~Review() {
-  std::cout << "Review class destructor" << std::endl;
+void Review::printData() {
+  std::cout << "review title: " << title << std::endl;
+  std::cout << "init value: " << initValue << std::endl;
+  std::cout << "check value: " << checkValue << std::endl;
 }

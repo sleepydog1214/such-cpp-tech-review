@@ -2,12 +2,8 @@
 
 #include <iostream>
 
-IOReview::IOReview() {
-
-}
-
 void IOReview::start() {
-
+  printData();
 }
 
 void IOReview::test() {
@@ -15,9 +11,5 @@ void IOReview::test() {
 }
 
 void IOReview::end() {
-
-}
-
-IOReview::~IOReview() {
 
 }
