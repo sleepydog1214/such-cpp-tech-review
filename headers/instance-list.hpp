@@ -15,7 +15,7 @@
 class ReviewList {
   public:
     ReviewList();
-    //Review** getList();
+    
     std::vector<Review *> & getList();
 
     ~ReviewList();
@@ -24,7 +24,6 @@ class ReviewList {
     // Initialize each review instance
     ParseJSON jsonFile;
 
-    //Review **instanceList;
     std::vector<Review *> instanceList;
 
     AlgoReview   *algoReview;

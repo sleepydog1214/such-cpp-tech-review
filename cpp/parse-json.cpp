@@ -4,6 +4,9 @@
 
 const std::string ParseJSON::jsonName = "./json/review-init.json";
 
+//*****************************************************************************
+// Constructor
+//*****************************************************************************
 ParseJSON::ParseJSON() {
   jsonFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
 
@@ -15,11 +18,14 @@ ParseJSON::ParseJSON() {
   }
 }
 
-void ParseJSON::getJSON() {
+//*****************************************************************************
+// Read the JSON file and build the main map data structure
+//*****************************************************************************
+void ParseJSON::readJSON() {
   std::string line;
   std::size_t found;
-  std::vector<std::map<std::string,
-      std::vector<std::map<std::string, std::string> > > > bvect;
+
+  MainJSONVector bvect;
 
   jsonFile.exceptions(std::ifstream::goodbit);
 
@@ -31,7 +37,7 @@ void ParseJSON::getJSON() {
   std::getline(jsonFile, line);
   std::string valueKey = getStringFromLine(line);
   while (true) {
-    std::vector<std::map<std::string, std::string> > avect;
+    DataVector avect;
 
     // loop through all jsonData inner string: string pairs
     while (std::getline(jsonFile, line)) {
@@ -45,13 +51,12 @@ void ParseJSON::getJSON() {
       std::string iv = line.substr(x + y + 1);
       iv = getStringFromLine(iv);
 
-      std::map<std::string, std::string> amap;
+      DataPairMap amap;
       amap[ik] = iv;
       avect.push_back(amap);
     }
 
-    std::map<std::string,
-      std::vector<std::map<std::string, std::string> > > bmap;
+    DataMap bmap;
     bmap[valueKey] = avect;
     bvect.push_back(bmap);
     std::getline(jsonFile, line);
@@ -66,6 +71,9 @@ void ParseJSON::getJSON() {
   jsonData[mainKey] = bvect;
 }
 
+//*****************************************************************************
+// Parse the JSON file and pull out a single string
+//*****************************************************************************
 std::string ParseJSON::getStringFromLine(std::string line) {
   std::string tmp;
 

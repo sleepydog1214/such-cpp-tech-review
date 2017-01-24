@@ -6,32 +6,26 @@
 #include <map>
 #include <vector>
 
+#include "json-data-structures.hpp"
+
 class ParseJSON {
   public:
     ParseJSON();
 
-    void getJSON();
-    std::map< std::string,
-      std::vector< std::map< std::string,
-        std::vector< std::map< std::string, std::string > > > > > & getData() {
+    // Read and store the JSON data
+    void readJSON();
+
+    // Return the JSON data
+    MainJSONMap& getData() {
           return jsonData;
-        };
+    };
 
     ~ParseJSON();
 
   private:
     static const std::string jsonName;
     std::ifstream jsonFile;
-
-    // jsonData:
-    // map<string, vector>
-    //  - the vector<map>
-    //    - the map<string, vector>
-    //      - the vector<map>
-    //        - the map<string, string>
-    std::map< std::string,
-      std::vector< std::map< std::string,
-        std::vector< std::map< std::string, std::string > > > > > jsonData;
+    MainJSONMap jsonData;
 
     std::string getStringFromLine(std::string);
 };
