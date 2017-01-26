@@ -1,32 +1,71 @@
 #include "algo-review.hpp"
 
 #include <iostream>
+#include <vector>
 
 //*****************************************************************************
 //*****************************************************************************
 void AlgoReview::start() {
   printData();
+
+  // build a vector of pointers to each test function
+  tests.push_back(&AlgoReview::test1);
+  tests.push_back(&AlgoReview::test2);
+  tests.push_back(&AlgoReview::test3);
+  tests.push_back(&AlgoReview::test4);
 }
 
 //*****************************************************************************
 //*****************************************************************************
 void AlgoReview::test() {
+  std::vector<void (AlgoReview::*)()>::iterator it = tests.begin();
+  for( ; it < tests.end(); it++) {
+    void (AlgoReview::* f)() = *it;
+    (this->*f)();
+  }
+}
+
+//*****************************************************************************
+//*****************************************************************************
+void AlgoReview::test1() {
   int a = getRandInt(1, 1000);
   int b = getRandInt(1000, 2000);
   int r = euclid_gcd1(a, b);
-  std::cout << "gcd(" << a << "," << b << ")" << " = " << r << std::endl;
+  std::cout << "euclid gcd 1(" << a << "," << b << ")" << " = " << r << std::endl;
   initValue++;
+}
 
-  a = getRandInt(-1000, 1000);
-  b = getRandInt(1000, 3000);
-  r = euclid_gcd2(a, b);
-  std::cout << "gcd(" << a << "," << b << ")" << " = " << r << std::endl;
+//*****************************************************************************
+//*****************************************************************************
+void AlgoReview::test2() {
+  int a = getRandInt(-1000, 1000);
+  int b = getRandInt(1000, 3000);
+  int r = euclid_gcd2(a, b);
+  std::cout << "euclid gcd 2(" << a << "," << b << ")" << " = " << r << std::endl;
   initValue++;
+}
 
-  a = getRandInt(4000, 7000);
-  b = getRandInt(1000, 4000);
-  r = binary_gcd(a, b);
-  std::cout << "gcd(" << a << "," << b << ")" << " = " << r << std::endl;
+//*****************************************************************************
+//*****************************************************************************
+void AlgoReview::test3() {
+  int a = getRandInt(4000, 7000);
+  int b = getRandInt(1000, 4000);
+  int r = binary_gcd(a, b);
+  std::cout << "binary gcd(" << a << "," << b << ")" << " = " << r << std::endl;
+  initValue++;
+}
+
+//*****************************************************************************
+//*****************************************************************************
+void AlgoReview::test4() {
+  int a = getRandInt(20, 40); // avoid going past INT_MAX
+  std::vector<int> v = fibonacci(a);
+  std::cout << "fibonacci sequence to " << a << ": " << std::endl;
+  std::vector<int>::iterator it = v.begin();
+  for(; it != v.end(); it++) {
+    std::cout << *it << ", ";
+  }
+  std::cout << std::endl;
   initValue++;
 }
 
@@ -90,4 +129,25 @@ int AlgoReview::binary_gcd(int a, int b) {
 
   // restore the common factors of 2
   return a << shift;
+}
+
+//*****************************************************************************
+//*****************************************************************************
+std::vector<int> AlgoReview::fibonacci(int n) {
+  std::vector<int> sequence;
+
+  if (n < 0) return sequence;
+
+  sequence.push_back(1);
+  sequence.push_back(1);
+
+  if (n == 1) return sequence;
+
+  for (int i = 2; i <= n; i++) {
+    int j = sequence[i - 2];
+    int k = sequence[i - 1];
+    sequence.push_back(j + k);
+  }
+
+  return sequence;
 }

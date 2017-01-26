@@ -3,6 +3,7 @@
 
 #include "review.hpp"
 #include <string>
+#include <vector>
 
 class AlgoReview: public Review {
   public:
@@ -16,9 +17,17 @@ class AlgoReview: public Review {
     ~AlgoReview() {}
 
   private:
+    std::vector<void (AlgoReview::*)()> tests;
+
+    void test1();
+    void test2();
+    void test3();
+    void test4();
+    
     int euclid_gcd1(int a, int b);
     int euclid_gcd2(int a, int b);
     int binary_gcd(int a, int b);
+    std::vector<int> fibonacci(int n);
 };
 
 #endif
