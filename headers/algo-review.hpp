@@ -14,6 +14,11 @@ class AlgoReview: public Review {
     void end();
 
     ~AlgoReview() {}
+
+  private:
+    int euclid_gcd1(int a, int b);
+    int euclid_gcd2(int a, int b);
+    int binary_gcd(int a, int b);
 };
 
 #endif

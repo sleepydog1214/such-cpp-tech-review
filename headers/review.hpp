@@ -22,6 +22,9 @@ class Review {
     int checkValue;
 
     void printData();
+    void printResults();
+
+    int getRandInt(int min, int max);
 };
 
 #endif
