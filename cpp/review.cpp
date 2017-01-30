@@ -4,6 +4,8 @@
 #include <cmath>
 #include <ctime>
 
+unsigned int Review::seed = 1;
+
 //*****************************************************************************
 //*****************************************************************************
 void Review::printData() {
@@ -27,7 +29,7 @@ void Review::printResults() {
 //*****************************************************************************
 //*****************************************************************************
 int Review::getRandInt(int min, int max) {
-  srand(time(NULL));
+  srand(time(NULL) + seed++);
 
   double x = static_cast<double>(min);
   double y = static_cast<double>(max);

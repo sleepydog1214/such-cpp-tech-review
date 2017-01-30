@@ -25,6 +25,9 @@ class Review {
     void printResults();
 
     int getRandInt(int min, int max);
+
+  private:
+    static unsigned int seed;
 };
 
 #endif

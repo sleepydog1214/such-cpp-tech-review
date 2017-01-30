@@ -2,12 +2,12 @@
   { "algo-review" : {
       "init-value": "1",
       "init-string": "An algorithm review",
-      "check-value": "5"
+      "check-value": "6"
   }},
   {"hash-review": {
       "init-value": "2",
       "init-string": "A hash table review",
-      "check-value": "5"
+      "check-value": "6"
   }},
   {"io-review": {
       "init-value": "3",

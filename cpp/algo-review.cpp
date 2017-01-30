@@ -13,6 +13,7 @@ void AlgoReview::start() {
   tests.push_back(&AlgoReview::test2);
   tests.push_back(&AlgoReview::test3);
   tests.push_back(&AlgoReview::test4);
+  tests.push_back(&AlgoReview::test5);
 }
 
 //*****************************************************************************
@@ -61,6 +62,20 @@ void AlgoReview::test4() {
   int a = getRandInt(20, 40); // avoid going past INT_MAX
   std::vector<int> v = fibonacci(a);
   std::cout << "fibonacci sequence to " << a << ": " << std::endl;
+  std::vector<int>::iterator it = v.begin();
+  for(; it != v.end(); it++) {
+    std::cout << *it << ", ";
+  }
+  std::cout << std::endl;
+  initValue++;
+}
+
+//*****************************************************************************
+//*****************************************************************************
+void AlgoReview::test5() {
+  int n = getRandInt(1000, 3000);
+  std::vector<int> v = eratosthenes(n);
+  std::cout << "All primes to " << n << ": " << std::endl;
   std::vector<int>::iterator it = v.begin();
   for(; it != v.end(); it++) {
     std::cout << *it << ", ";
@@ -150,4 +165,26 @@ std::vector<int> AlgoReview::fibonacci(int n) {
   }
 
   return sequence;
+}
+
+//*****************************************************************************
+//*****************************************************************************
+std::vector<int> AlgoReview::eratosthenes(int n) {
+  std::vector<bool> arr (n + 1, true);
+  std::vector<int> results;
+
+  for (int i = 2; i * i <= n; i++) {
+    if (arr[i]){
+      for (int j = i * i; j < n; j += i) {
+        arr[j] = false;
+      }
+    }
+  }
+
+  for (int i = 2; i <= n; i++) {
+    if (arr[i])
+      results.push_back(i);
+  }
+
+  return results;
 }
